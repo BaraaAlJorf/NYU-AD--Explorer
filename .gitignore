@@ -1,0 +1,20 @@
+
+   
+#Virtual Environment
+venv/
+
+#Flask
+instance/*
+!instance/.gitignore
+.webassets.cache
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IntelliJ IDE configs
+.idea/*
+.DS_Store
+
+

@@ -1,0 +1,32 @@
+<!-- Page to display user settings -->
+
+<!-- Inherits from "base.html"-->
+{% extends "base.html" %}
+<!-- Title Block -->
+{% block pageTitle %} Settings {% endblock %}
+
+{% block pageContent %}
+
+<h2> {{fname}} {{lname}}</h2>
+<div class="card-body">
+    <div class="form-group">
+        <label class="form-label">First name</label>
+        <input type="text" class="form-control mb-1" value={{fname}} readonly>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Last name</label>
+        <input type="text" class="form-control" value={{lname}} readonly>
+    </div>
+    <div class="form-group">
+        <label class="form-label">E-mail</label>
+        <input type="text" class="form-control mb-1" value={{email}} readonly>
+    </div>
+    <div class="form-group">
+        <label class="form-label"> Class Year</label>
+        <input type="text" class="form-control mb-1" value={{classYear}} readonly>
+    </div>
+    <a href="/logout" class="btn btn-secondary btn-lg " role="button"> Logout </a>
+
+</div>
+
+{%endblock%}

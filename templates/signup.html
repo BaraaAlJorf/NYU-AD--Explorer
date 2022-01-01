@@ -1,0 +1,72 @@
+<!-- Sign up page of the website -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Signup </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<!-- Display flash messages -->
+<body>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+    {{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- form to collect information when signing up -->
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center"> Sign up! </h3>
+                </div>
+                <div class="panel-body">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="E-mail" name="email" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="First Name" name="fname" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Last Name" name="lname" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="pass" type="password" value="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Confirm Password" name="confirmPass"
+                                   type="password" value="">
+                        </div>
+                        <div class="form-group">
+                            <label> Class Year: </label>
+                            <select class="form-control" name="classYear" id="classYear" aria-required="true">
+                                <option> 2022 </option>
+                                <option> 2023 </option>
+                                <option> 2024 </option>
+                                <option> 2025 </option>
+                            </select>
+                        </div>
+                        <input class="btn btn-lg btn-dark btn-block" type="submit" value="Sign up">
+                    </form>
+                    <a href="/login"> Already have an account? Log in. </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap files -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

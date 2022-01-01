@@ -1,0 +1,40 @@
+<!-- Page to display list of places -->
+<!-- Inherits from "base.html"-->
+{% extends "base.html" %}
+<!-- Title Block -->
+{% block pageTitle %} {{placeName}}  {% endblock %}
+{% block pageContent %}
+<h1> {{placeName}} </h1>
+<h4> Description: </h4>
+<p> {{placeDescription}}</p>
+<h4> Average Rating: </h4>
+<p> {{placeRating}}</p>
+<h4> Average Budget: </h4>
+<p> {{placeBudget}}</p>
+<div id="contentframe" style="position:relative; top: 0px; right: -10px;">
+<iframe src="{{placeLocation}}" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<br>
+<h4> Reviews </h4>
+{% for reviewUser, reviewContent, reviewRating, reviewBudget in reviews %}
+    <div class="col-sm-6">
+     <div class="card">
+      <div class="card-body">
+          <h2 class="card-title"> {{reviewUser}} </h2>
+          <p class="card-text"> {{reviewContent}} </p>
+          <p class="card-text"> Rating: {{reviewRating}} /5  </p>
+          <p class="card-text"> Estimated budget: {{reviewBudget}} AED  </p>
+      </div>
+     </div>
+    </div>
+{% endfor %}
+    <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title"> Add a new review </h3>
+        <p class="card-text">  </p>
+        <a href="/{{placeName}}/newReview" class="btn btn-dark">  Add </a>
+      </div>
+    </div>
+    </div>
+{%endblock%}

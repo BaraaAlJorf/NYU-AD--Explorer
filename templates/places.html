@@ -1,0 +1,39 @@
+<!-- Page to display list of places -->
+
+<!-- Inherits from "base.html"-->
+{% extends "base.html" %}
+<!-- Title Block -->
+{% block pageTitle %} Places {% endblock %}
+
+{% block pageContent %}
+<!-- Display message if login is unsuccessful -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+	<div class="alert alert-success" role="alert">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+
+<div class="row">
+{% for placeName, placeDescription in places %}
+    <div class="col-sm-6">
+     <div class="card">
+      <div class="card-body">
+          <h2 class="card-title"> {{placeName}} </h2>
+        <p class="card-text"> {{placeDescription}} </p>
+        <a href="/{{placeName}}" class="btn btn-dark"> View </a>
+      </div>
+     </div>
+    </div>
+{% endfor %}
+    <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title"> Add a new place </h2>
+        <p class="card-text">  </p>
+        <a href="/newplace" class="btn btn-dark">  Add </a>
+      </div>
+    </div>
+    </div>
+{%endblock%}

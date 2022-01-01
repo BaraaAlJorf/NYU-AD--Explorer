@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block pageTitle %}
+Add New Place
+{% endblock %}
+
+{% block pageContent %}
+<!-- Display flash messages -->
+<body>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+    {{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="content">
+    <h1>Insert a new place</h1>
+     <form class = "form-inline "action="#" method="post">
+
+             <div class="col-sm-10">
+                 <input type="text" name="name" class="form-control" placeholder=" Place Name">
+             </div>
+             <div class="col-sm-10">
+                 <input type="text" name="loc" class="form-control" placeholder="Location Link">
+             </div>
+               <div class="col-sm-10">
+                      <label class="my-1 mr-2" label for="category" class="col-sm-2 col-form-label"></label>
+                        <select class="custom-select my-1 mr-sm-2" name="category" >
+                            <option selected>Choose...</option>
+                            <option value="Restaurant">Restaurant</option>
+                            <option value="Sports facility">Sports Facility</option>
+                            <option value="recreational">Recreational</option>
+                            <option value="shopping center">Shopping Center</option>
+                            <option value="Other"> Other</option>
+                        </select>
+                   </div>
+               <div class="col-sm-10">
+                   <input type="text" name = "desc" class="form-control" placeholder="Description">
+               </div>
+               <div class="col-sm-10">
+                   <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+           </div>
+
+
+     </form>
+</div>
+{% endblock %}

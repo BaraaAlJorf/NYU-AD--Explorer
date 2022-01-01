@@ -1,0 +1,36 @@
+<!-- Page to display home page -->
+
+<!-- Inherits from "base.html"-->
+{% extends "base.html" %}
+<!-- Title Block -->
+{% block pageTitle %} Home {% endblock %}
+
+{% block pageContent %}
+<!-- Display flash messages -->
+<body>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+    {{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- Homepage -->
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+          <img src="{{ url_for('static', filename='images/nyuad.jpg')}}" class="d-block mx-lg-auto img-fluid"  width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3"> Welcome to NYU(AD)Explorer! </h1>
+        <p class="lead"> Find new places to explore in Abu Dhabi as recommended by other NYUAD students. </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="/signup" type="button" class="btn btn-dark btn-lg px-4 me-md-2"> Create an Account </a>
+          <a href="/signin" type="button" class="btn btn-outline-secondary btn-lg px-4">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
